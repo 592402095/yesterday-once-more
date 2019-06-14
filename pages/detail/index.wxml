@@ -1,0 +1,78 @@
+<import src="../../libs/wxParse/wxParse.wxml" />
+<include src="../../libs/weToast/weToast.wxml" />
+
+<!--背景  -->
+<view class='background'></view>
+
+<!--导航  -->
+<view class='navigator' style='padding-top:{{STATUS_HEIGHT}}px;'>
+  <!--返回按钮  -->
+  <view class='back' bindtap='goBackHandler'>
+    <image src='/assets/back_333.svg'></image>
+  </view>
+  <!--标题  -->
+  <view class='title'>
+    <text>日记详情</text>
+  </view>
+</view>
+
+<view class='container'>
+  <!--加载中  -->
+  <view class='loading' wx:if="{{LOADING}}">
+    <image src='/assets/loading.svg'></image>
+  </view>
+  <!--渲染内容  -->
+  <view wx:else class='box'>
+    <!--标题等信息  -->
+    <view class='data-info'>
+      <!--左侧头像昵称  -->
+      <view class='left'>
+        <image src='{{INFO.avatar}}'></image>
+        <text>{{INFO.userName}}</text>
+      </view>
+      <!--右侧标题信息  -->
+      <view class='right'>
+        <text class='info'>{{INFO.viewNum}} 浏览 / {{INFO.likeNum}} 喜欢 / {{INFO.postDate}}</text>
+        <text>{{INFO.title}}</text>
+      </view>
+    </view>
+    <view class='separator'></view>
+    <!--内容  -->
+    <view class='body'>
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    </view>
+
+    <!--附言列表  -->
+    <view class='fy-box'>
+      <view wx:for="{{INFO.fuyans}}" wx:key="{{index}}">
+        <!--标题  -->
+        <view class='fy-title'>
+          <text>- 附言{{index+1}} / {{INFO.fuyans[index].date}} -</text>
+        </view>
+        <!--内容  -->
+        <template is="wxParse" data="{{wxParseData:fy[index].nodes}}" />
+      </view>
+    </view>
+  </view>
+
+  <!--底部按钮  -->
+  <view class='bottom-btn'>
+    <!--喜欢  -->
+    <view
+      class="btn-box like-btn"
+      hover-class='hover-class'
+      bindtap='toggleLikeHandler'>
+      <image
+        src="/assets/favorite{{INFO.isLiked?'':'_outline'}}.svg"
+      />
+    </view>
+    <!--删除  -->
+    <view
+      class='btn-box del-btn'
+      wx:if="{{INFO.delToken}}"
+      bindtap='delHandler'
+      hover-class='hover-class'>
+      <image src='/assets/trash.svg' />
+    </view>
+  </view>
+</view>
