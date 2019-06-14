@@ -1,7 +1,9 @@
 var md5 = require('./libs/md5.min.js');
 var API = require('./utils/api.js');
+var datas = datas;
 //app.js
 App({
+  
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -36,6 +38,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    datas:[]
   }
+  
 })

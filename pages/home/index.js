@@ -13,36 +13,24 @@ Page({
    */
   data: {
     datas: [],
-    LOADING: true,
+    LOADING: false,
     SCROLL_TOP: 0,
     HEADER_OPACITY: 0,
     MENU_ANIMATION: {},
     HEIGHT: INFO.screenHeight,
     STATUS_HEIGHT: INFO.statusBarHeight,
-    CAN_LOAD_MORE: true,
-    SHOW_MENU: false
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var loadDairy = () => {
-      // 开始加载数据
-      API.loadDiary().then(datas => {
-        PAGE = 1;
-        setTimeout(() => this.setData({
-          datas,
-          LOADING: false
-        }), 500);
-      }).catch(err => {
-        // 错误拉
-        console.log('ERR', err)
-      });
-    }
-
-    YUDAO.loadDairy = () => loadDairy();
-    loadDairy();
+    var bean = JSON.parse(options.model);
+    this.setData({
+      datas: bean
+    })
+    
 
     // 菜单动画
     var show_animation = wx.createAnimation({
@@ -142,34 +130,11 @@ Page({
     })
   },
   // 显示菜单
-  showMenuHandler: function () {
-    this.setData({
-      SHOW_MENU: true
-    });
-  },
-  hideMenuHandler: function () {
-    this.setData({
-      SHOW_MENU: false
-    })
-  },
-
-  /**
-   * 菜单点击事件
-   */
-  menuActionHandler: function (e) {
-    var { route } = e.currentTarget.dataset;
+  showCreate: function (e) {
+    var model = JSON.stringify(this.data.datas)
     wx.navigateTo({
-      url: '/pages/' + route + '/index',
+      url: '/pages/create/index?model='+model,
     })
   },
-  /**
-   * 点击卡片事件
-   */
-  viewDetailHandler: function (e) {
-    console.log(e);
-    var { link } = e.currentTarget.dataset.item;
-    wx.navigateTo({
-      url: '/pages/detail/index?link=' + link,
-    })
-  }
+  
 })

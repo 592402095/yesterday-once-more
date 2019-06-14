@@ -131,6 +131,85 @@
   animation: loading 800ms infinite ease;
 }
 
+
+
+
+
+
+.container2 {
+  padding: 80px 20px 20px 20px;
+}
+.card {
+  background-color: #FFF;
+  min-height: 100px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 0px -2px #DDD;
+  display: flex;
+  flex-direction: row;
+}
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.avatar {
+  width: 50px;
+  height: 50px;
+  background-color: #EEE;
+  border-radius: 50px;
+  /* border: 1px solid #DDD; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 5px 10px -5px #999;
+}
+.avatar > text {
+  font-size: 20px;
+  color: #FFF;
+  font-weight: 200;
+}
+.left > text {
+  font-size: 12px;
+  color: #666;
+  margin-top: 5px;
+  font-weight: 200;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  padding-left: 0;
+}
+
+.info {
+  font-size: 12px;
+  color: #999;
+  font-weight: 200;
+}
+.title {
+  margin-top: 5px;
+  font-size: 20px;
+  color: #333;
+  font-weight: 400;
+}
+
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.loading > image {
+  width: 25px;
+  height: 25px;
+  animation: loading 800ms infinite ease;
+}
+
 /*加载动画  */
 @keyframes loading {
   0% {
@@ -141,66 +220,21 @@
   }
 }
 
-.menu-shadow {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-}
-.menu-container {
-  position: absolute;
-  bottom: 0;
-  /* height: 200px; */
-  background-color: #FFF;
-  width: 100%;
-  border-radius: 10px 10px 0px 0px;
-}
-.menu-top {
-  display: flex;
-  flex-direction: row;
+.nodata {
   padding: 20px;
-}
-.menu-cell {
-  flex: 1;
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
-.menu-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-  background-color: red;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.nodata > image {
+  width: 100px;
+  height: 100px;
 }
-.menu-icon > image {
-  width: 20px;
-  height: 20px;
-}
-.menu-cell > text {
+
+.nodata > text {
   font-size: 14px;
+  margin-top: 10px;
+  font-weight: 300;
   color: #666;
-  font-weight: 200;
-  margin-top: 5px;
-}
-
-.menu-bottom {
-  border-top: 1px solid #EEE;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.menu-close {
-  padding: 15px;
-}
-.menu-close > image {
-  width: 15px;
-  height: 15px;
 }

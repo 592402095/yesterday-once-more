@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/init/loading",
+    
     "pages/home/index",
     "pages/member/index",
     "pages/create/index",

@@ -24,7 +24,7 @@
         placeholder='日记标题（选填）'
         placeholder-style='input-placeholder'></input>
     </view>
-
+      <view class='nowdate'>修改日期：{{time}}</view>
     <view class='input-data'>
       <textarea
         value='{{CONTENT}}'
