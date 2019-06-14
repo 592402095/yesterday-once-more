@@ -17,7 +17,7 @@ Page({
   
   bindViewTap: function () {
     wx.navigateTo({
-      url: '../logs/logs'
+      url: '../home/index'
     })
   },
   bindEnterTap: function () {

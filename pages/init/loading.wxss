@@ -108,6 +108,17 @@ page {
   color: #fFF;
 }
 
+.hint{
+    width: 200px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:linear-gradient(135deg, rgb(12, 248, 248) 0%, #fbff00 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
 
 .reg-box {
 
