@@ -24,13 +24,14 @@
     </view>
     <view wx:else style='flex:1;display:flex;'>
       <!--登陆框  -->
-      <view class='authorization' wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
-        <button class='authorization-btn'>授权登录</button>
-      </view>
+      <view class='authorization'>
+        <button class='authorization-btn' wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权登录</button>
       <block wx:else>
         <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
       </block>
+      </view>
+
       <!--欢迎  -->
     </view>
 </view>

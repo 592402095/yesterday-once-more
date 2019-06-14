@@ -28,11 +28,23 @@ page {
   color: #E6E61A;
   font-weight: 500;
 }
+
 .smalltitle {}
 .smalltitle > text {
   font-size: 24px;
   color: #fff;
   font-weight: 400;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #fff;
 }
 
 .loading {
