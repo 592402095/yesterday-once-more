@@ -16,12 +16,7 @@ page {
 .header {
   padding: 100px 20px 20px 20px;
 }
-.logo {}
-.logo > image {
-  width: 60px;
-  height: 60px;
-  border-radius: 10px;
-}
+
 .bigtitle {}
 .bigtitle > text {
   font-size: 32px;
@@ -47,54 +42,12 @@ page {
   color: #fff;
 }
 
-.loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-}
-.loading > image {
-  width: 25px;
-  height: 25px;
-  animation: loading 800ms infinite ease;
-}
-/*加载动画  */
-@keyframes loading {
-  0% {
-    transform: rotate(360deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
 .authorization {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-.input-cell {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.input-cell > image {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-}
-.input-cell > input {
-  border-bottom: 1px solid #EEE;
-  padding: 5px;
-  font-weight: 300;
-  color: #333;
-}
-.input-placeholder {
-  font-size: 14px;
-  color: #999;
-  font-weight: 200;
 }
 
 .authorization-btn {
@@ -103,7 +56,7 @@ page {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(135deg, rgb(81, 236, 236) 0%, #0e3a27 100%);
+  background-image: linear-gradient(135deg, rgb(81, 236, 236) 0%, RGB(14,58,39) 100%);
   border-radius: 5px;
   color: #fFF;
 }
@@ -114,7 +67,7 @@ page {
     display: flex;
     align-items: center;
     justify-content: center;
-    background:linear-gradient(135deg, rgb(12, 248, 248) 0%, #fbff00 100%);
+    background:linear-gradient(135deg, RGB(12,248,248) 0%, RGB(251,255,0) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
