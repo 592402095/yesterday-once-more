@@ -26,10 +26,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var data = JSON.parse(options.model);
-    this.setData({
-      datas: data
-    })
+    var data = wx.getStorageSync('userData');
+    if(data)
+    {
+      this.setData({
+        datas: data
+      })
+    }
     
 
     // 菜单动画
@@ -74,15 +77,6 @@ Page({
   
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    return {
-      title: '遇岛日记',
-      path: '/pages/init/loading?from=home'
-    }
-  },
 
   /**
    * 滚动事件
