@@ -152,3 +152,9 @@ page {
   font-weight: 200;
   font-size: 16px;
 }
+
+.avator{
+  height:50px;
+  width:50px;
+  border-radius:25px;
+}
