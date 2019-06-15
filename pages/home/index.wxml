@@ -21,20 +21,56 @@
   <view class='box'>
     <view wx:for="{{datas}}" wx:key="{{index}}" class="card" hover-class='hover-class' bindtap='viewDetailHandler'>
       <!--左侧  -->
+      <view class='bound'>
+       <view wx:if="{{item.CURRENT_PRIVER.id==0}}">
+          <view class='degree' style="background-color:#fdd"></view>
+       </view>
+       <view wx:elif="{{item.CURRENT_PRIVER.id==1}}">
+         <view class='degree' style="background-color:#c69"></view>
+       </view>
+       <view wx:elif="{{item.CURRENT_PRIVER.id==2}}">
+          <view class='degree' style="background-color:#c36"></view>
+       </view>
+      </view>
       <view class='left'>
-        
-        <text class='info'>{{item.view}} 概览//</text>
         <text class='title'>{{item.TITLE}}</text>
         <text class='editdate'>{{item.time}}</text>
       </view>
       <!--右侧  -->
       
-      <view class='right'>
-        <view class='avatar'>
-          <text>{{item.current_tag.name}}</text>
+      <view class='right' >
+        <view wx:if="{{item.current_tag.id==1}}">
+          <view class='avatar' style="background-color: #aaa">
+           <text>{{item.current_tag.name}}</text>
+          </view>
         </view>
-        
+        <view wx:elif="{{item.current_tag.id==2}}">
+          <view class='avatar' style="background-color: #fb0">
+            <text>{{item.current_tag.name}}</text>
+         </view>
+        </view>
+        <view wx:elif="{{item.current_tag.id==3}}">
+          <view class='avatar' style="background-color: #f30">
+            <text>{{item.current_tag.name}}</text>
+         </view>
+        </view>
+        <view wx:elif="{{item.current_tag.id==4}}">
+          <view class='avatar' style="background-color: #f70">
+            <text>{{item.current_tag.name}}</text>
+         </view>
+        </view>
+        <view wx:elif="{{item.current_tag.id==5}}">
+          <view class='avatar' style="background-color: #69f">
+            <text>{{item.current_tag.name}}</text>
+         </view>
+        </view>
+        <view wx:elif="{{item.current_tag.id==6}}">
+          <view class='avatar' style="background-color: #f6f">
+            <text>{{item.current_tag.name}}</text>
+         </view>
+        </view>
       </view>
+      
     </view>
   </view>
   

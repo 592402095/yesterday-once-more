@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/init/index",
+    
     "pages/home/index",
     "pages/member/index",
     "pages/create/index",

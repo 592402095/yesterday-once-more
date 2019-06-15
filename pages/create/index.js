@@ -4,7 +4,7 @@ var util = require('../../utils/util.js');
 var TAGS = [
   {
     id: '1',
-    name: '平淡'
+    name: '无聊'
   }, {
     id: '2',
     name: '快乐'
@@ -20,21 +20,18 @@ var TAGS = [
   }, {
     id: '6',
     name: '纠结'
-  }, {
-    id: '7',
-    name: '无聊'
   }
 ];
 var PRIVERS = [
   {
     id: '0',
-    name: '完全公开'
+    name: '平淡'
   }, {
     id: '1',
-    name: '自己可见'
+    name: '有趣'
   }, {
     id: '2',
-    name: '匿名公开'
+    name: '深刻'
   }
 ];
 var TOAST;
