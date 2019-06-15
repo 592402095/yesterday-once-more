@@ -206,21 +206,17 @@
   }
 }
 
-.nodata {
+.caution {
   padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
-.nodata > image {
-  width: 100px;
-  height: 100px;
-}
 
-.nodata > text {
-  font-size: 14px;
+.cautiontext {
+  font-size: 22px;
   margin-top: 10px;
-  font-weight: 300;
+  font-weight: 500;
   color: #666;
 }

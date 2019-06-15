@@ -39,9 +39,9 @@
   </view>
   
   <!--无数据  -->
-  <view wx:if="{{!LOADING && (datas.length === 0)}}" class='nodata'>
+  <view wx:if="{{!LOADING && (datas.length === 0)}}" class= 'caution'>
     
-    <text>来书写第一份回忆吧！</text>
+    <text class= 'cautiontext'>来书写第一份回忆吧！</text>
   </view>
 </view>
 
