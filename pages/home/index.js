@@ -26,7 +26,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var data = typeof options.model=='string'?JSON.parse(options.model):options.model;
+    var data = wx.getStorageSync('userData');
     if(data)
     {
       this.setData({
@@ -77,15 +77,6 @@ Page({
   
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    return {
-      title: '遇岛日记',
-      path: '/pages/init/loading?from=home'
-    }
-  },
 
   /**
    * 滚动事件

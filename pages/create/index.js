@@ -138,6 +138,7 @@ Page({
     TOAST.success('日记发布成功！');
     wx.setStorageSync('CREATE_TITLE', '');
     wx.setStorageSync('CREATE_CONTENT', '');
+    wx.setStorageSync('userData', this.data.datas);
     var model = JSON.stringify(this.data.datas)
     wx.navigateTo({
       url: '/pages/home/index?model=' + model,
