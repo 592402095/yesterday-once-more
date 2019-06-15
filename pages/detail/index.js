@@ -1,6 +1,6 @@
 // pages/detail/index.js
 var INFO = wx.getSystemInfoSync();
-var { API, YUDAO } = getApp();
+var app = getApp();
 var WxParse = require('../../libs/wxParse/wxParse.js');
 var TOAST;
 var weToast = require('../../libs/weToast/weToast.js');
@@ -11,42 +11,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-    INFO: {},
-    LOADING: true,
-    STATUS_HEIGHT: INFO.statusBarHeight,
-    FROM_MY: false
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var { link, isMe } = options;
-    if (isMe === 'yes') this.setData({
-      FROM_MY: true
+    var data = wx.getStorageSync('userData');
+    var ID = options.id;
+    this.setData({
+      id: ID
     });
-    this.LINK = link;
-    TOAST = new weToast(this);
-
-    API.getDetail(link).then(data => {
+    if (data) {
       this.setData({
-        LOADING: false,
-        INFO: data.info
-      });
-      // 解析html
-      var article = data.html;
-      WxParse.wxParse('article', 'html', article, this, 5);
-      // 解析附言html
-      var { fuyans } = data.info;
-      var self = this;
-      fuyans.map(function (fy, index) {
-        console.log('parse:', fy, index);
-        WxParse.wxParse('fy[' + index+']', 'html', fy.html, self, 5);
-      });
-    }).catch(err => {
-      TOAST.error('加载日记失败！')
-      setTimeout(() => wx.navigateBack({}), 1000);
+        datas: data
+      })
+    }
+    this.setData({
+      time: data[ID].time,
+      TITLE:data[ID].TITLE,
+      CONTENT:data[ID].CONTENT,
+      current_tag:data[ID].current_tag,
+      CURRENT_PRIVER:data[ID].CURRENT_PRIVER,
     });
+    TOAST = new weToast(this);
   },
 
   /**
@@ -81,20 +70,6 @@ Page({
     wx.navigateBack({});
   },
 
-  /**
-   * 喜欢/取消喜欢
-   */
-  toggleLikeHandler: function () {
-    var { INFO } = this.data;
-    API.setLike(INFO.id);
-    this.setData({
-      INFO: Object.assign(INFO, {
-        isLiked: !INFO.isLiked
-      })
-    });
-    // 提示
-    TOAST[INFO.isLiked ? 'info' : 'warning'](INFO.isLiked ? '感谢您的喜欢！' : '好遗憾被取消了点赞..');
-  },
   // 删除
   delHandler: function () {
     var { INFO } = this.data;

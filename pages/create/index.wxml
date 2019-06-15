@@ -52,7 +52,7 @@
         <view
           class='tool-icon'
           style='background-image: linear-gradient(135deg, #ffb199 0%, #ff0844 100%);'>
-          <image src='/assets/feeling.png'></image>
+          <image src='/assets/favorite.svg'></image>
         </view>
         <text>{{current_tag.name}}</text>
       </view>

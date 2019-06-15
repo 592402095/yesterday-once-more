@@ -49,7 +49,13 @@ Page({
     hide_animation.bottom(-100).opacity(0).step();
     this.HIDE_ANIMATION = hide_animation.export();
   },
-
+  viewDetailHandler: function (e) {
+    var id = e.currentTarget.dataset.test;
+    console.log(id);
+    wx.navigateTo({
+      url: '/pages/detail/index?id=' + id,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

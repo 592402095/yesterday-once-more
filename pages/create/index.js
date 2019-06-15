@@ -31,7 +31,7 @@ var PRIVERS = [
     name: '有趣'
   }, {
     id: '2',
-    name: '深刻'
+    name: '难忘'
   }
 ];
 var TOAST;
