@@ -11,7 +11,7 @@
   </view>
   <!--标题  -->
   <view class='title'>
-    <text>编写日记</text>
+    <text>填写</text>
   </view>
 </view>
 
