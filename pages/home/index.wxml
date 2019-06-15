@@ -11,29 +11,40 @@
   <!--标题  -->
   <view class='header' style='opacity:{{1-(HEADER_OPACITY*2)}};'>
     <text class='title'>昨日重现</text>
+<<<<<<< HEAD
     <text class='subtitle'>留住逝去的往日</text>
+=======
+
+    <text class='subtitle'>留住逝去的往日</text>
+
+    <text class='subtitle'>打开你记忆的大门</text>
+
+>>>>>>> c26a21d505a848de9f301e83db220a869cd2c984
   </view>
 
 
   <view class='container2'>
   <!--数据列表  -->
   <view class='box'>
-    <view wx:for="{{datas}}" wx:key="{{index}}" class="card" hover-class='hover-class' bindtap='viewDetailHandler' data-link='{{item.link}}'>
+    <view wx:for="{{datas}}" wx:key="{{index}}" class="card" hover-class='hover-class' bindtap='viewDetailHandler'>
       <!--左侧  -->
       <view class='left'>
-        <view class='avatar' style='{{item.style}}'>
-          <text>{{item.current_tag.name}}</text>
-        </view>
         
-      </view>
-      <!--右侧  -->
-      <view class='right'>
         <text class='info'>{{item.view}} 浏览//</text>
         <text class='title'>{{item.TITLE}}</text>
         <text class='editdate'>{{item.time}}</text>
       </view>
+      <!--右侧  -->
+      
+      <view class='right'>
+        <view class='avatar'>
+          <text>{{item.current_tag.name}}</text>
+        </view>
+        
+      </view>
     </view>
   </view>
+  
   <!--无数据  -->
   <view wx:if="{{!LOADING && (datas.length === 0)}}" class='nodata'>
     

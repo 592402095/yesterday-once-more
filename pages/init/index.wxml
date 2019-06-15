@@ -26,8 +26,8 @@
       <button class='authorization-btn' wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权登录</button>
       <block wx:else>
         <text class="hint">{{"点击头像进入小程序"}}</text>
-        <view class="userborder">
-          <text>\n</text>
+        <view class="userborder" style="display: flex;flex-direction: column">
+          
           <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
           <text class="userinfo-nickname">\n{{userInfo.nickName}}</text>
         </view>
