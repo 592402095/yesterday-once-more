@@ -21,7 +21,7 @@
       <input
         value='{{TITLE}}'
         bindinput='inputTitleHandler'
-        placeholder='日记标题（选填）'
+        placeholder='日记标题'
         placeholder-style='input-placeholder'></input>
     </view>
       <view class='nowdate'>修改日期：{{time}}</view>
@@ -33,7 +33,7 @@
         style='width:{{WIDTH-60}}px;height:300px;'
         placeholder-class='textarea-placeholder'
         bindinput='inputContentHandler'
-        placeholder='写点儿什么呢？生活、工作、学习、感情、心情、吐槽 ... 一句话，记录最真的自己，随心所欲 ...'></textarea>
+        placeholder='今天发生了哪些事呢？'></textarea>
     </view>
   </view>
 
@@ -63,7 +63,7 @@
         <view
           class='tool-icon'
           style='background-image: linear-gradient(135deg, #ffb199 0%, #ff0844 100%);'>
-          <image src='/assets/tag.svg'></image>
+          <image src='/assets/feeling.png'></image>
         </view>
         <text>{{current_tag.name}}</text>
       </view>
