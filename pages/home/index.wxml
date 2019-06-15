@@ -22,15 +22,16 @@
     <view wx:for="{{datas}}" wx:key="{{index}}" >
     <view class="card" data-test="{{index}}" hover-class='hover-class'  bindtap='viewDetailHandler'>
       <!--左侧  -->
+     
       <view class='bound'>
        <view wx:if="{{item.CURRENT_PRIVER.id==0}}">
-          <view class='degree' style="background-color:#fdd"></view>
+          <view class='degree' style="background-color:#f9f"></view>
        </view>
        <view wx:elif="{{item.CURRENT_PRIVER.id==1}}">
-         <view class='degree' style="background-color:#c69"></view>
+         <view class='degree' style="background-color:#f5b"></view>
        </view>
-       <view wx:elif="{{item.CURRENT_PRIVER.id==2}}">
-          <view class='degree' style="background-color:#c36"></view>
+       <view wx:else>
+          <view class='degree' style="background-color:#f17"></view>
        </view>
       </view>
       <view class='left'>
