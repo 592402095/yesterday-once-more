@@ -1,10 +1,9 @@
 // pages/detail/index.js
-var INFO = wx.getSystemInfoSync();
 var app = getApp();
 var WxParse = require('../../libs/wxParse/wxParse.js');
 var TOAST;
 var weToast = require('../../libs/weToast/weToast.js');
-
+var INFO = wx.getSystemInfoSync();
 Page({
 
   /**
@@ -72,30 +71,20 @@ Page({
 
   // 删除
   delHandler: function () {
-    var { INFO } = this.data;
-    console.log(INFO.delToken);
+    
     wx.showModal({
-      title: '删除日记',
-      content: '确定删了这篇日记吗？多多考虑噢！',
+      title: '删除回忆',
+      content: '确定删了这份回忆吗？',
       success: ret => {
-        if (!ret.confirm) return;
-        // 开始删除
-        wx.showLoading({
-          title: '删除日记中',
-          mask: true
-        });
-        API.delDairy(INFO.id, INFO.delToken).then(() => {
-          wx.hideLoading();
-          TOAST.success('日记删除成功！');
-          // 刷新日记列表
-          YUDAO.loadDairy();
-          YUDAO.loadMyDairy && YUDAO.loadMyDairy();
-          // 返回
-          setTimeout(() => wx.navigateBack({}), 1000);
-        }).catch(err => {
-          TOAST.error('日记删除失败！');
-          console.warn(err);
-        });
+        var newdata=this.data.datas;
+        var ID=this.data.id;
+        newdata.splice(ID,1)
+        this.setData({
+          datas:newdata
+        })
+        wx.setStorageSync('userData', '');
+        wx.setStorageSync('userData', this.data.datas);
+        wx.navigateBack({});
       }
     })
   }

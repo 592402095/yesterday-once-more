@@ -49,16 +49,6 @@
 
   <!--底部按钮  -->
   <view class='bottom-btn'>
-    <!--编辑  -->
-    <view
-      class="btn-box like-btn"
-      hover-class='hover-class'
-      bindtap='toggleLikeHandler'>
-      
-      <image
-        src="/assets/tag.svg"
-      />
-    </view>
     <!--删除  -->
     <view
       class='btn-box del-btn'

@@ -26,28 +26,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var data = wx.getStorageSync('userData');
-    if(data)
-    {
-      this.setData({
-        datas: data
-      })
-    }
+    
     
 
-    // 菜单动画
-    var show_animation = wx.createAnimation({
-      duration: 500,
-      timingFunction: 'ease'
-    });
-    var hide_animation = wx.createAnimation({
-      duration: 500,
-      timingFunction: 'ease'
-    });
-    show_animation.bottom(0).opacity(1).step();
-    this.SHOW_ANIMATION = show_animation.export();
-    hide_animation.bottom(-100).opacity(0).step();
-    this.HIDE_ANIMATION = hide_animation.export();
+    
   },
   viewDetailHandler: function (e) {
     var id = e.currentTarget.dataset.test;
@@ -67,6 +49,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var data = wx.getStorageSync('userData');
+    if (data) {
+      this.setData({
+        datas: data
+      })
+    }
   },
 
   /**
