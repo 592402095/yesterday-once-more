@@ -11,17 +11,17 @@
   </view>
   <!--标题  -->
   <view class='title'>
-    <text>填写</text>
+    <text>放入回忆</text>
   </view>
 </view>
-
+<text>\n</text>
 <view class='container'>
   <view class='box'>
     <view class='input-title'>
       <input
         value='{{TITLE}}'
         bindinput='inputTitleHandler'
-        placeholder='日记标题'
+        placeholder='回忆标题'
         placeholder-style='input-placeholder'></input>
     </view>
       <view class='nowdate'>修改日期：{{time}}</view>
@@ -33,22 +33,12 @@
         style='width:{{WIDTH-60}}px;height:300px;'
         placeholder-class='textarea-placeholder'
         bindinput='inputContentHandler'
-        placeholder='今天发生了哪些事呢？'></textarea>
+        placeholder='今天要记录哪些珍贵的回忆呢？'></textarea>
     </view>
   </view>
 
   <!--工具栏  -->
   <view class='toolbox'>
-    <!--
-    <view class='tool-cell' hover-class='hover-class'>
-      <view
-        class='tool-icon'
-        style='background-image: linear-gradient(135deg, #30cfd0 0%, #330867 100%);'>
-        <image src='/assets/gps.svg'></image>
-      </view>
-      <text>地理位置</text>
-    </view>
-    -->
     <view class='tool-cell' hover-class='hover-class' bindtap='uploadImage'>
       <view
         class='tool-icon'

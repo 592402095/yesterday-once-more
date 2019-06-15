@@ -23,7 +23,7 @@
       <!--左侧  -->
       <view class='left'>
         
-        <text class='info'>{{item.view}} 浏览//</text>
+        <text class='info'>{{item.view}} 概览//</text>
         <text class='title'>{{item.TITLE}}</text>
         <text class='editdate'>{{item.time}}</text>
       </view>
