@@ -11,11 +11,7 @@
   <!--标题  -->
   <view class='header' style='opacity:{{1-(HEADER_OPACITY*2)}};'>
     <text class='title'>昨日重现</text>
-<<<<<<< HEAD
     <text class='subtitle'>留住逝去的往日</text>
-=======
-    <text class='subtitle'>打开你记忆的大门</text>
->>>>>>> 6faca6fce4d5abf582aef8aa23a151414cd16af7
   </view>
 
 

@@ -26,9 +26,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var bean = JSON.parse(options.model);
+    var data = JSON.parse(options.model);
     this.setData({
-      datas: bean
+      datas: data
     })
     
 
