@@ -73,7 +73,7 @@ Page({
       CONTENT: wx.getStorageSync('CREATE_CONTENT'),
       current_tag: TAGS[parseInt(wx.getStorageSync('CREATE_TAG'))] || TAGS[0],
       CURRENT_PRIVER: PRIVERS[parseInt(wx.getStorageSync('CREATE_PRIVER'))] || PRIVERS[0],
-      COUNT: wx.getStorageSync('CREATE_COUNT'),
+      COUNT: 3,
       UPLOADEDIMAGE: wx.getStorageSync('CREATE_UPLOADEDIMAGE')
     });
   },
