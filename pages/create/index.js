@@ -3,25 +3,25 @@ var INFO = wx.getSystemInfoSync();
 var util = require('../../utils/util.js');
 var TAGS = [
   {
-    id: '1480686584130',
+    id: '1',
     name: '平淡'
   }, {
-    id: '1480686584131',
+    id: '2',
     name: '快乐'
   }, {
-    id: '1480686584132',
+    id: '3',
     name: '激动'
   }, {
-    id: '1480686584133',
+    id: '4',
     name: '满足'
   }, {
-    id: '1480686584134',
+    id: '5',
     name: '悲伤'
   }, {
-    id: '1480686584135',
+    id: '6',
     name: '纠结'
   }, {
-    id: '1480686584136',
+    id: '7',
     name: '无聊'
   }
 ];
