@@ -26,10 +26,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var data = JSON.parse(options.model);
-    this.setData({
-      datas: data
-    })
+    var data = typeof options.model=='string'?JSON.parse(options.model):options.model;
+    if(data)
+    {
+      this.setData({
+        datas: data
+      })
+    }
     
 
     // 菜单动画

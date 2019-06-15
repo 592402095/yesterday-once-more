@@ -124,13 +124,12 @@ Page({
     });
     wx.setStorageSync('CREATE_PRIVER', id)
   },
-  /**
-   * 发布操作
-   */
+
+  //发布
   submitHandler: function () {
     var { time, TITLE, CONTENT, CURRENT_PRIVER, current_tag } = this.data;
     var addelment = { time, TITLE, CONTENT, CURRENT_PRIVER, current_tag };
-    if (!CONTENT) return TOAST.warning('写点什么再发布吧！');
+    if (!TITLE || !CONTENT) return TOAST.warning('写点什么再发布吧！');
     var list=this.data.datas;
     list.push(addelment);
     this.setData({
