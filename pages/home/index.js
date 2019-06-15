@@ -129,6 +129,5 @@ Page({
     wx.navigateTo({
       url: '/pages/create/index?model='+model,
     })
-  },
-  
+  }
 })

@@ -53,7 +53,10 @@ Page({
     CURRENT_PRIVER: PRIVERS[0],
     TITLE: '',
     CONTENT: '',
-    content_focus: true
+    content_focus: true,
+    IMAGE: [],
+    UPLOADEDIMAGE: [],
+    COUNT: 3
   },
 
   /**
@@ -69,7 +72,9 @@ Page({
       TITLE: wx.getStorageSync('CREATE_TITLE'),
       CONTENT: wx.getStorageSync('CREATE_CONTENT'),
       current_tag: TAGS[parseInt(wx.getStorageSync('CREATE_TAG'))] || TAGS[0],
-      CURRENT_PRIVER: PRIVERS[parseInt(wx.getStorageSync('CREATE_PRIVER'))] || PRIVERS[0]
+      CURRENT_PRIVER: PRIVERS[parseInt(wx.getStorageSync('CREATE_PRIVER'))] || PRIVERS[0],
+      COUNT: wx.getStorageSync('CREATE_COUNT'),
+      UPLOADEDIMAGE: wx.getStorageSync('CREATE_UPLOADEDIMAGE')
     });
   },
 
@@ -124,8 +129,8 @@ Page({
 
   //发布
   submitHandler: function () {
-    var { time, TITLE, CONTENT, CURRENT_PRIVER, current_tag } = this.data;
-    var addelment = { time, TITLE, CONTENT, CURRENT_PRIVER, current_tag };
+    var { time, TITLE, CONTENT, CURRENT_PRIVER, current_tag, UPLOADEDIMAGE, COUNT} = this.data;
+    var addelment = { time, TITLE, CONTENT, CURRENT_PRIVER, current_tag ,UPLOADEDIMAGE, COUNT};
     if (!TITLE || !CONTENT) return TOAST.warning('写点什么再发布吧！');
     var list=this.data.datas;
     list.push(addelment);
@@ -135,6 +140,8 @@ Page({
     TOAST.success('日记发布成功！');
     wx.setStorageSync('CREATE_TITLE', '');
     wx.setStorageSync('CREATE_CONTENT', '');
+    wx.setStorageSync('CREATE_COUNT', 3);
+    wx.setStorageSync('CREATE_UPLOADEDIMAGE', []);
     wx.setStorageSync('userData', this.data.datas);
     var model = JSON.stringify(this.data.datas)
     wx.navigateTo({
@@ -162,27 +169,87 @@ Page({
   /**
    * 上传图片
    */
+  // uploadImage: function () {
+  //   wx.chooseImage({
+  //     count: 1,
+  //     success: (res) => {
+  //       wx.showLoading({
+  //         title: '上传图片中..',
+  //         mask: true
+  //       });
+  //       var filePath = res.tempFilePaths[0];
+  //       API.uploadFile(filePath).then(img_url => {
+  //         // 插入图片
+  //         var CONTENT = this.data.CONTENT + '\n\n![](' + img_url + ')\n\n';
+  //         this.setData({
+  //           CONTENT,
+  //           content_focus: true
+  //         });
+  //         // 存储缓存
+  //         wx.setStorageSync('CREATE_CONTENT', CONTENT);
+  //         wx.hideLoading();
+  //       })
+  //     },
+  //   })
+  // }
   uploadImage: function () {
+    var that = this;
+    if (that.data.COUNT == 0) return TOAST.warning('最多只能选择三张图片哦！');
     wx.chooseImage({
-      count: 1,
+      count: that.data.COUNT,
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: (res) => {
-        wx.showLoading({
+        wx.showToast({
           title: '上传图片中..',
+          icon: 'loading',
+          duration: 500,
           mask: true
         });
-        var filePath = res.tempFilePaths[0];
-        API.uploadFile(filePath).then(img_url => {
-          // 插入图片
-          var CONTENT = this.data.CONTENT + '\n\n![](' + img_url + ')\n\n';
-          this.setData({
-            CONTENT,
-            content_focus: true
-          });
-          // 存储缓存
-          wx.setStorageSync('CREATE_CONTENT', CONTENT);
-          wx.hideLoading();
+        that.setData({
+          IMAGE: res.tempFilePaths,
+          COUNT: that.data.COUNT - res.tempFilePaths.length
         })
+        that.setData({
+          UPLOADEDIMAGE: that.data.UPLOADEDIMAGE.concat(res.tempFilePaths)
+        })
+        // 存储缓存
+        wx.setStorageSync('CREATE_UPLOADEDIMAGE', that.data.UPLOADEDIMAGE);
+        wx.setStorageSync('CREATE_COUNT', that.data.COUNT);
       },
+    })
+  },
+  previewImage: function (e) {
+    var current = e.target.dataset.src
+    wx.previewImage({
+      current: current,
+      urls: this.data.UPLOADEDIMAGE
+    })
+  },
+  deleteImg: function (e) {
+    var that = this;
+    var imgs = that.data.UPLOADEDIMAGE;
+    var index = e.currentTarget.dataset.index//获取当前长按图片下标
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除此图片吗？',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('确认');
+          imgs.splice(index, 1);
+        } else if (res.cancel) {
+          console.log('取消');
+          return false;
+        }
+        that.setData({
+          UPLOADEDIMAGE: imgs,
+          COUNT: that.data.COUNT + 1
+        });
+        // 存储缓存
+        wx.setStorageSync('CREATE_UPLOADEDIMAGE', that.data.UPLOADEDIMAGE);
+        wx.setStorageSync('CREATE_COUNT', that.data.COUNT);
+        console.log(that.data.COUNT);
+      }
     })
   }
 })
