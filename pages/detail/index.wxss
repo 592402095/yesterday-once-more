@@ -61,7 +61,7 @@ page {
 .box {
   height: 450px;
   margin: 10px 0px 20px 0px;
-  background-color: #fff;
+  background-color: #eeeee0;
   padding: 10px;
   box-shadow: 0px 5px 0px -2px #DDD;
   border-radius: 10px;
