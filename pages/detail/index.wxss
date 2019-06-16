@@ -59,7 +59,7 @@ page {
 
 
 .box {
-  height: 450px;
+  height: 390px;
   margin: 10px 0px 20px 0px;
   background-color: #eeeee0;
   padding: 10px;

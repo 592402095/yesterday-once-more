@@ -25,13 +25,14 @@
      
       <view class='bound'>
        <view wx:if="{{item.CURRENT_PRIVER.id==0}}">
-          <view class='degree' style="background-color:#f9f"></view>
+          <view class='degree' style="background: linear-gradient(135deg, #DDA0DD 0%, #cc6699 100%)"></view>
        </view>
+       
        <view wx:elif="{{item.CURRENT_PRIVER.id==1}}">
-         <view class='degree' style="background-color:#f5b"></view>
+         <view class='degree' style="background: linear-gradient(135deg, #cc6699 0%, #ff55bb 100%)"></view>
        </view>
        <view wx:else>
-          <view class='degree' style="background-color:#f17"></view>
+          <view class='degree' style="background: linear-gradient(135deg,#ff55bb 0%, #ff1177 100%)"></view>
        </view>
       </view>
       <view class='left'>

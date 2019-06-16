@@ -78,6 +78,7 @@ Page({
       title: '删除回忆',
       content: '确定删了这份回忆吗？',
       success: ret => {
+        if (!ret.confirm) return;
         var newdata=this.data.datas;
         var ID=this.data.id;
         newdata.splice(ID,1)
