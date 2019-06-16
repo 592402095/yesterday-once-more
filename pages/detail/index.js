@@ -34,7 +34,7 @@ Page({
       current_tag:data[ID].current_tag,
       CURRENT_PRIVER:data[ID].CURRENT_PRIVER,
       COUNT:data[ID].COUNT,
-      UPDATEDIMAGE:data[ID].UPDATEDIMAGE
+      UPLOADEDIMAGE:data[ID].UPLOADEDIMAGE
     });
     TOAST = new weToast(this);
   },
@@ -43,7 +43,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
@@ -88,6 +88,13 @@ Page({
         wx.setStorageSync('userData', this.data.datas);
         wx.navigateBack({});
       }
+    })
+  },
+  previewImage: function (e) {
+    var current = e.target.dataset.src
+    wx.previewImage({
+      current: current,
+      urls: this.data.UPLOADEDIMAGE
     })
   }
 })

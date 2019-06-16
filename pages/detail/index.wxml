@@ -46,9 +46,9 @@
     <view class='body'><text>{{CONTENT}}</text></view>
 
   </view>
-  <view wx:if="{{this.data.COUNT!=3}}" class='toolbox'>
+  <view wx:if="{{COUNT!=3}}" class='toolbox'>
       <view class='tool-cell' wx:for="{{UPLOADEDIMAGE}}" wx:key="*this">
-        <image class='avator' src="{{item}}" data-index="{{index}}" data-src="{{item}}" mode="aspectFill" bindtap="previewImage" bindlongpress="deleteImg"></image> 
+        <image class='avator' src="{{item}}" data-index="{{index}}" data-src="{{item}}" mode="aspectFill" bindtap="previewImage" ></image> 
     </view>
   </view>
   <!--底部按钮  -->

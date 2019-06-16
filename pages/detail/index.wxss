@@ -161,3 +161,20 @@ page {
   width:50px;
   border-radius:25px;
 }
+
+.toolbox {
+  display: flex;
+  flex-direction: row;
+  margin:20px 0px;
+  background-color:#eeeee0;
+  padding:10px 0px;
+  border-radius:10px;
+  box-shadow:0 5px 0 -2px #DDD;
+}
+.tool-cell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+}
