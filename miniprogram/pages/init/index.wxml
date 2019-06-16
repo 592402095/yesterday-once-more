@@ -1,0 +1,39 @@
+<include src="/libs/weToast/weToast.wxml" />
+
+<view class="container">
+  <!--标题  -->
+  <view class='header'>
+    <!--the first row  -->
+    <view class='smalltitle'>
+      <text>欢迎使用</text>
+    </view>
+    <!--the second  -->
+    <view class='bigtitle'>
+      <text>昨日重现</text>
+    </view>
+    <!--the third -->
+    <view class='smalltitle'>
+      <text>小程序</text>
+    </view>
+
+
+  <!--内容  -->
+    <!--加载中  -->
+ 
+    <view class='authorization' style='flex:1;display:flex;'>
+      <!--登陆框  -->
+      <text>\n\n\n</text>
+      <button class='authorization-btn' wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权登录</button>
+      <block wx:else>
+        <text class="hint">{{"点击头像进入小程序"}}</text>
+        <view class="userborder" style="display: flex;flex-direction: column">
+          
+          <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+          <text class="userinfo-nickname">\n{{userInfo.nickName}}</text>
+        </view>
+      </block>
+
+      <!--欢迎  -->
+    </view>
+  </view>
+</view>

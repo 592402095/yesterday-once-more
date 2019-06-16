@@ -1,0 +1,95 @@
+<!--背景  -->
+<view class='background'></view>
+<scroll-view
+  bindscroll="scrollHandler"
+  bindscrolltolower="loadMoreHandler"
+  scroll-y
+  scroll-with-animation
+  scroll-top="{{SCROLL_TOP}}"
+  class="container"
+  style='height:{{HEIGHT}}px;'>
+  <!--标题  -->
+  <view class='header' style='opacity:{{1-(HEADER_OPACITY*2)}};'>
+    <text class='title'>昨日重现</text>
+    <text class='subtitle'>留住逝去的往日</text>
+    <text class='subtitle'>打开你记忆的大门</text>
+  </view>
+
+
+  <view class='container2'>
+  <!--数据列表  -->
+  <view class='box'>
+    <view wx:for="{{datas}}" wx:key="{{index}}" >
+    <view class="card" data-test="{{index}}" hover-class='hover-class'  bindtap='viewDetailHandler'>
+      <!--左侧  -->
+     
+      <view class='bound'>
+       <view wx:if="{{item.CURRENT_PRIVER.id==0}}">
+          <view class='degree' style="background: linear-gradient(135deg, #DDA0DD 0%, #cc6699 100%)"></view>
+       </view>
+       
+       <view wx:elif="{{item.CURRENT_PRIVER.id==1}}">
+         <view class='degree' style="background: linear-gradient(135deg, #cc6699 0%, #ff55bb 100%)"></view>
+       </view>
+       <view wx:else>
+          <view class='degree' style="background: linear-gradient(135deg,#ff55bb 0%, #ff1177 100%)"></view>
+       </view>
+      </view>
+      <view class='left'>
+        <text class='title'>{{item.TITLE}}</text>
+        <text class='editdate'>{{item.time}}</text>
+      </view>
+      <!--右侧  -->
+      
+      <view class='right' >
+        <view wx:if="{{item.current_tag.id==1}}">
+          <view class='avatar' style="background-color: #aaa">
+           <text>{{item.current_tag.name}}</text>
+          </view>
+        </view>
+        <view wx:elif="{{item.current_tag.id==2}}">
+          <view class='avatar' style="background-color: #fb0">
+            <text>{{item.current_tag.name}}</text>
+         </view>
+        </view>
+        <view wx:elif="{{item.current_tag.id==3}}">
+          <view class='avatar' style="background-color: #f30">
+            <text>{{item.current_tag.name}}</text>
+         </view>
+        </view>
+        <view wx:elif="{{item.current_tag.id==4}}">
+          <view class='avatar' style="background-color: #f70">
+            <text>{{item.current_tag.name}}</text>
+         </view>
+        </view>
+        <view wx:elif="{{item.current_tag.id==5}}">
+          <view class='avatar' style="background-color: #69f">
+            <text>{{item.current_tag.name}}</text>
+         </view>
+        </view>
+        <view wx:elif="{{item.current_tag.id==6}}">
+          <view class='avatar' style="background-color: #f6f">
+            <text>{{item.current_tag.name}}</text>
+         </view>
+        </view>
+      </view>
+      
+    </view>
+  </view>
+  
+  <!--无数据  -->
+  <view wx:if="{{!LOADING && (datas.length === 0)}}" class= 'caution'>
+    
+    <text class= 'cautiontext'>来书写第一份回忆吧！</text>
+  </view>
+</view>
+</view>
+
+
+  <!--菜单  -->
+  <view class='menu-box' animation="{{MENU_ANIMATION}}">
+    <view class='menu-btn' hover-class='hover-class' bindtap='showCreate'>
+      <image src='/assets/note.svg'></image>
+    </view>
+  </view>
+</scroll-view>
