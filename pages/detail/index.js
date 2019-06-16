@@ -33,6 +33,8 @@ Page({
       CONTENT:data[ID].CONTENT,
       current_tag:data[ID].current_tag,
       CURRENT_PRIVER:data[ID].CURRENT_PRIVER,
+      COUNT:data[ID].COUNT,
+      UPDATEDIMAGE:data[ID].UPDATEDIMAGE
     });
     TOAST = new weToast(this);
   },
